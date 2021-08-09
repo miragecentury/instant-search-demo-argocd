@@ -18,6 +18,27 @@ spec:
   ignoreDifferences:
     - group: apiextentions.k8s.io
       kind: CustomResourceDefinition
+      name: analysisruns.argoproj.io
+      jsonPointers:
+        - /spec/preserveUnknownFields
+    - group: apiextentions.k8s.io
+      kind: CustomResourceDefinition
+      name: analysistemplates.argoproj.io
+      jsonPointers:
+        - /spec/preserveUnknownFields
+    - group: apiextentions.k8s.io
+      kind: CustomResourceDefinition
+      name: clusteranalysistemplates.argoproj.io
+      jsonPointers:
+        - /spec/preserveUnknownFields
+    - group: apiextentions.k8s.io
+      kind: CustomResourceDefinition
+      name: experiments.argoproj.io
+      jsonPointers:
+        - /spec/preserveUnknownFields
+    - group: apiextentions.k8s.io
+      kind: CustomResourceDefinition
+      name: rollouts.argoproj.io
       jsonPointers:
         - /spec/preserveUnknownFields
 
