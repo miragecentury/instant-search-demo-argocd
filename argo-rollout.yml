@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-rollout
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/miragecentury/instant-search-demo-argocd.git"
+    targetRevision: HEAD
+    path: "./argo-rollout"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: "argo-rollout"
+  syncPolicy:
+    automated:
+      prune: true
