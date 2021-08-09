@@ -4,6 +4,7 @@ metadata:
   name: rollouts-demo
   namespace: instant-search-demo
 spec:
+  revisionHistoryLimit: 2
   replicas: 2
   strategy:
     canary:
@@ -26,7 +27,6 @@ spec:
       app: instant-search-demo
   template:
     metadata:
-      namespace: instant-search-demo
       labels:
         app: instant-search-demo
     spec:
