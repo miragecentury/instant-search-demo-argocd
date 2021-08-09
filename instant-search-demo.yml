@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: factorio
+  name: isntant-search-demo
 spec:
   project: default
   source:
