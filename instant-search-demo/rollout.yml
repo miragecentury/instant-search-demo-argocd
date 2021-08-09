@@ -4,7 +4,7 @@ metadata:
   name: rollouts-demo
   namespace: instant-search-demo
 spec:
-  replica: 2
+  replicas: 2
   strategy:
     canary:
       canaryService: instant-search-demo-next-svc
