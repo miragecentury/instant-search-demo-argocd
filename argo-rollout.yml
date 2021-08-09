@@ -19,5 +19,5 @@ spec:
     - group: apiextentions.k8s.io
       kind: CustomResourceDefinition
       jsonPointers:
-        - /spec/preserveUnknowFields
+        - /spec/preserveUnknownFields
 
