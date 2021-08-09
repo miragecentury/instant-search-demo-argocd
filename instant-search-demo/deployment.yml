@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
   name: instant-search-demo
   namespace: instant-search-demo
@@ -30,7 +30,7 @@ spec:
             memory: 200Mi
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
   name: instant-search-demo-next
   namespace: instant-search-demo
