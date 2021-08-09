@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: self-management
+  namespace: argocd-system
+spec:
+  project: default
+  source:
+    repoURL: "https://https://github.com/miragecentury/instant-search-demo-argocd.git"
+    targetRevision: HEAD
+    path: "./"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: "argocd-system"
+  syncPolicy:
+    automated:
+      prune: true
