@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: instant-search-demo
+  namespace: instant-search-demo
+  labels:
+    app: instant-search-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: instant-search-demo
+  template:
+    metadata:
+      namespace: instant-search-demo
+      labels:
+        app: instant-search-demo
+    spec:
+      containers:
+      - name: instant-search-demo
+        image: "ghcr.io/miragecentury/instant-search-demo:v0.0.4"
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: 400Mi
+          requests:
+            cpu: "0.5"
+            memory: 200Mi

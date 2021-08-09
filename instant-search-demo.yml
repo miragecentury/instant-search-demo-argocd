@@ -1,22 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: self-management
-  namespace: argocd-system
+  name: factorio
 spec:
   project: default
   source:
     repoURL: "https://github.com/miragecentury/instant-search-demo-argocd.git"
     targetRevision: HEAD
-    path: "./"
+    path: "./instant-search-demo"
   destination:
     server: https://kubernetes.default.svc
-    namespace: "argocd-system"
+    namespace: "instant-search-demo"
   syncPolicy:
     automated:
       prune: true
-  ignoreDifferences:
-    - kind: PersistentVolumeClaim
-      jsonPointers:
-        - /metadata/annotations/cni.projectcalico.org/podIP
-        - /metadata/annotations/cni.projectcalico.org/podIPs
