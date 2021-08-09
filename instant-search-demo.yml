@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: isntant-search-demo
+  name: instant-search-demo
 spec:
   project: default
   source:
