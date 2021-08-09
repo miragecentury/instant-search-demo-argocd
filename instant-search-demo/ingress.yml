@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: instant-search-demo-ingress
+  namespace: instant-search-demo
+  annotations:
+    "kubernetes.io/ingress.class": "nginx"
+    "cert-manager.io/cluster-issuer": "ca-issuer"
+    "nginx.ingress.kubernetes.io/force-ssl-redirect": "true"
+    "nginx.ingress.kubernetes.io/ssl-passthrough": "true"
+    "nginx.ingress.kubernetes.io/backend-protocol": "HTTPS"
+spec:
+  tls:
+  - hosts:
+      - instant-search-demo.microk8s.local
+    secretName: instant-search-demo-crt
+  rules:
+  - host: instant-search-demo.microk8s.local
+    http:
+      paths:
+      - path: / 
+        pathType: Prefix
+        backend:
+          service:
+            name: instant-search-demo-svc
+            port:
+              number: 80
