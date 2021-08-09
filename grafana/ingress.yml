@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-ingress
+  namespace: monitoring
+  annotations:
+    "kubernetes.io/ingress.class": "nginx"
+    "cert-manager.io/cluster-issuer": "ca-issuer"
+    "nginx.ingress.kubernetes.io/force-ssl-redirect": "true"
+    "nginx.ingress.kubernetes.io/ssl-passthrough": "false"
+    "nginx.ingress.kubernetes.io/backend-protocol": "HTTP"
+spec:
+  tls:
+  - hosts:
+      - grafana.microk8s.local
+    secretName: grafana-crt
+  rules:
+  - host: grafana.microk8s.local
+    http:
+      paths:
+      - path: / 
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana
+            port:
+              number: 3000
